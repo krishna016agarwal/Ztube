@@ -11,7 +11,7 @@ const connectDb=async()=>{
             
        })
     } catch (error) {
-        console.log("MONGODB ERROR",error);
+        console.log("MONGODB CONNECTION ERROR",error);
         
     }
 }
