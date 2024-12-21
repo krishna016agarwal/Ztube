@@ -1,25 +1,19 @@
-import express from "express"
-const app = express()
-const port = process.env.PORT||4000
+import express from "express";
+ import connectDb from "./db/db.js";
+import dotenv from "dotenv";
 
-app.get('/api/jokes', (req, res) => {
-  const jokes=[
-    {
-        id:1,
-        name:"rahul"
-    },
-    {
-        id:2,
-        name:"mohan"
-    },
-    {
-      id:3,
-      name:"rohan"
-    }
-  ]
-  res.send(jokes)
+dotenv.config({
+  path:"./env"
 })
+const app = express();
+const port = process.env.PORT || 4000;
 
-app.listen(port, () =>            {
-  console.log(`Example app listening on port ${port}`)
-})
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
+
+connectDb();
